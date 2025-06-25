@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iluminando El Cambio | Energía Solar Sustentable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FFC107; /* Amarillo sol */
+            --secondary: #009688; /* Verde agua */
+            --dark: #1A237E; /* Azul noche */
+            --light: #F5F5F5;
+            --accent: #FF5722; /* Naranja energía */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: #333;
+        }
+        
+        /* Carrusel personalizado */
+        .carousel {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .carousel-caption {
+            background: rgba(26, 35, 126, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            bottom: 40px;
+            left: 10%;
+            right: 10%;
+        }
+        
+        /* Secciones temáticas */
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .benefits-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .stats-box {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .gradient-header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 50px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .btn-solar {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn-solar:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3);
+        }
+        
+        .impact-card {
+            border-left: 5px solid var(--primary);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 100px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Correcciones adicionales */
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Estilos para la sección de videos */
+        .video-section {
+            margin: 80px 0;
+        }
+        
+        .video-container {
+            margin-bottom: 50px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .video-info p {
+            color: #666;
+        }
+        
+        .ratio-16x9 {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        .ratio-16x9 iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            .gradient-header {
+                padding: 60px 0;
+            }
+            
+            .stats-box {
+                margin-bottom: 15px;
+            }
+            
+            .video-container {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Gradient -->
+    <div class="gradient-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold animate">ILUMINANDO EL CAMBIO</h1>
+            <p class="lead animate delay-1">Transformando el futuro con energía solar sustentable</p>
+            <a href="#contacto" class="btn btn-solar mt-4 animate delay-2">Únete al cambio</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Carrusel -->
+        <div id="carouselExampleCaptions" class="carousel slide animate delay-2" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagenes/Banner 1.jpg" class="d-block w-100" alt="Paneles solares en hogar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Energía sustentable para todos</h5>
+                        <p>Reduzca su huella de carbono y ahorre en su factura eléctrica</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/Banner 2.jpg" class="d-block w-100" alt="Instalación profesional">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Instalación profesional</h5>
+                        <p>Expertos certificados para su máxima tranquilidad</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/Banner 3.jpg" class="d-block w-100" alt="Comunidades sostenibles">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Comunidades sostenibles</h5>
+                        <p>Llevamos energía limpia a zonas rurales</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Sección Oportunidad -->
+        <section class="my-5 animate delay-3">
+            <h2 class="section-title">Oportunidad de Negocio</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Paneles Solares: El Futuro de la Energía</h3>
+                        <p>La instalación de paneles solares ofrece una excelente oportunidad de negocio al satisfacer diversas necesidades fundamentales para hogares y empresas.</p>
+                        <ul class="benefits-list">
+                            <li>Proporcionan energía durante emergencias</li>
+                            <li>Conexión emocional con el cuidado ambiental</li>
+                            <li>Ahorro económico a largo plazo</li>
+                            <li>Reducción de la dependencia energética</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Ventajas Competitivas</h3>
+                        <p>Nuestro modelo de negocio ofrece beneficios únicos en el mercado:</p>
+                        <ul class="benefits-list">
+                            <li>Precios accesibles de instalación</li>
+                            <li>Mantenimiento planificado incluido</li>
+                            <li>Tecnología de última generación</li>
+                            <li>Asesoramiento personalizado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Clientes -->
+        <section class="my-5">
+            <h2 class="section-title animate">Quiénes son nuestros clientes</h2>
+            <div class="row">
+                <div class="col-md-4 animate delay-1">
+                    <div class="stats-box">
+                        <i class="fas fa-home fa-3x mb-3"></i>
+                        <div class="stats-number">80%</div>
+                        <p>De ahorro en electricidad para hogares</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-2">
+                    <div class="stats-box">
+                        <i class="fas fa-building fa-3x mb-3"></i>
+                        <div class="stats-number">60%</div>
+                        <p>Reducción de costos para empresas</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-3">
+                    <div class="stats-box">
+                        <i class="fas fa-leaf fa-3x mb-3"></i>
+                        <div class="stats-number">4 ton</div>
+                        <p>Menos de CO₂ por hogar al año</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6 animate delay-1">
+                    <div class="impact-card">
+                        <h4><i class="fas fa-users me-2"></i> Clientes Individuales</h4>
+                        <ul class="benefits-list">
+                            <li>Propietarios que buscan ahorro y sostenibilidad</li>
+                            <li>Comunidades rurales sin acceso a red eléctrica</li>
+                            <li>Personas comprometidas con el medio ambiente</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 animate delay-2">
+                    <div class="impact-card">
+                        <h4><i class="fas fa-industry me-2"></i> Empresas y Negocios</h4>
+                        <ul class="benefits-list">
+                            <li>Industrias con alto consumo energético</li>
+                            <li>Comercios que buscan reducir costos</li>
+                            <li>Empresas con compromiso ecológico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Videos -->
+        <section class="video-section">
+            <div class="container">
+                <h2 class="section-title text-center animate">Videos Educativos</h2>
+                <p class="text-center mb-5 animate delay-1">Aprende más sobre energía solar con nuestros videos seleccionados</p>
+                
+                <div class="row">
+                    <!-- Video 1 -->
+                    <div class="col-lg-4 col-md-6 animate delay-1">
+                        <div class="video-container">
+                            <div class="video-card">
+                                <div class="ratio ratio-16x9">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1To_kFvnBM0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-info">
+                                    <h3>Clientes y Empresas para una Energia Renovable</h3>
+                                    <p>Descubre cómo funciona la energía solar y sus beneficios fundamentales junto a sus clientes y socios.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="col-lg-4 col-md-6 animate delay-2">
+                        <div class="video-container">
+                            <div class="video-card">
+                                <div class="ratio ratio-16x9">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PDe4bdPesd8?si=7lR83bM_PpYsU5-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-info">
+                                    <h3>Contribucion de ODS y Propuestas</h3>
+                                    <p>Proceso de Contribucion de ODS junto a la Propuesta para inisentivar el uso de paneles solares.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="col-lg-4 col-md-6 animate delay-3">
+                        <div class="video-container">
+                            <div class="video-card">
+                                <div class="ratio ratio-16x9">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uCBcRpHmdbU?si=6Teky7jy8vbzKd02" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-info">
+                                    <h3>Impacto Ambiental</h3>
+                                    <p>Cómo la energía solar contribuye a un futuro más sostenible.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Novedades -->
+        <section class="my-5">
+            <h2 class="section-title animate">Novedad y Soluciones</h2>
+            <div class="row">
+                <div class="col-lg-6 animate delay-1">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Innovación Energética</h3>
+                        <p>Este proyecto presenta una propuesta innovadora para la Región Metropolitana, permitiendo que las personas generen su propia energía sin depender de empresas externas.</p>
+                        <p><strong>Valor agregado:</strong> Sistema de paneles solares con precio accesible y mantenimiento planificado para funcionamiento eficiente a largo plazo.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate delay-2">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Impacto Ambiental</h3>
+                        <p>Nuestra solución se diferencia por aliviar el impacto económico para los clientes, evitando cobros excesivos tanto en la instalación como en el mantenimiento.</p>
+                        <div class="mt-3 p-3" style="background-color: #E3F2FD; border-radius: 10px;">
+                            <h5><i class="fas fa-check-circle me-2 text-success"></i> Beneficios:</h5>
+                            <ul class="benefits-list">
+                                <li>Calculadora de impacto económico y ambiental</li>
+                                <li>Conexión con proveedores locales</li>
+                                <li>Plataforma educativa integral</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Propuestas -->
+        <section class="my-5">
+            <h2 class="section-title animate">Nuestras Propuestas</h2>
+            <div class="row">
+                <div class="col-md-4 animate delay-1">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Educación Solar</h4>
+                        <p>Talleres interactivos con videos y guías sobre instalación y beneficios de la energía solar (ODS 4).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-2">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h4>Impacto Medible</h4>
+                        <p>Calculadora que simula ahorros y reducción de emisiones (ODS 7 y 13).</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate delay-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h4>Red Local</h4>
+                        <p>Mapa de proveedores cercanos con filtros por precio y reputación (ODS 9 y 17).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6 animate delay-2">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>Historias de Éxito</h4>
+                        <p>Casos reales de personas y comunidades que mejoraron su calidad de vida (ODS 11).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 animate delay-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Alianzas Estratégicas</h4>
+                        <p>Información sobre patrocinadores, subsidios, y contacto con instituciones que apoyan la transición energética.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="my-5 py-5">
+            <h2 class="section-title animate">Contáctanos</h2>
+            <div class="row">
+                <div class="col-lg-6 animate delay-1">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-envelope me-2"></i> Formulario de Contacto</h3>
+                        <form>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-solar">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate delay-2">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-map-marker-alt me-2"></i> Nuestra Ubicación</h3>
+                        <div class="ratio ratio-16x9 mb-4">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.217133034858!2d-70.66479512465976!3d-33.44364909716318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a93f630c19%3A0xc1680441da8a20aa!2sINACAP%20Santiago%20Centro!5e0!3m2!1ses-419!2scl!4v1750458954831!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <h4><i class="fas fa-clock me-2"></i> Horario de Atención</h4>
+                        <p>Lunes a Viernes: 9:00 - 18:00 hrs<br>
+                        Sábados: 10:00 - 14:00 hrs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4>Iluminando el Cambio</h4>
+                    <p>Energía solar sustentable para un futuro más brillante.</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.instagram.com/lvxnsito/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Enlaces Rápidos</h4>
+                    <div class="footer-links">
+                        <a href="#">Inicio</a><br>
+                        <a href="#oportunidad">Oportunidad</a><br>
+                        <a href="#clientes">Clientes</a><br>
+                        <a href="#novedades">Novedades</a><br>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Suscríbete</h4>
+                    <p>Recibe las últimas noticias y ofertas especiales.</p>
+                    <form class="mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                            <button class="btn btn-solar" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255,255,255,0.1);">
+            <div class="text-center pt-3">
+                <p class="small">© 2025 Iluminando el Cambio. Todos los derechos reservados. | <a href="#" style="color: var(--primary);">Política de Privacidad</a> | <a href="#" style="color: var(--primary);">Términos de Servicio</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animación al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
